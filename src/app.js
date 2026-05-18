@@ -1,3 +1,5 @@
+// Pipeline CD - Lab06
+
 function getMessage() {
   return "Laboratorio 06 - ISW2 | ID: 13**1*3";
 }
