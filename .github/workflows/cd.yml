@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+
+name: Lab02 — CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: Ejecutar Pruebas Unitarias
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v3
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Correr pruebas
+        run: npm test
+
+  deploy:
+    name: Desplegar en Render.com
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: Trigger Deploy en Render
+        run: |
+          curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
+
+      - name: Verificar estado del deploy
+        run: |
+          echo "Deploy iniciado para el servicio ${{ secrets.RENDER_SERVICE_ID }}"
+          echo "Revisá el estado en: https://dashboard.render.com"

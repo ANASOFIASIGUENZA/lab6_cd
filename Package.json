@@ -1,0 +1,16 @@
+{
+  "name": "lab06_cd",
+  "version": "1.0.0",
+  "description": "Laboratorio 06 - Pipeline CD - ISW2",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "jest --coverage"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
