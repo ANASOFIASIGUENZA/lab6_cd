@@ -1,7 +1,7 @@
 // Pipeline CD - Lab06
 
 function getMessage() {
-  return "Laboratorio 06 - ISW2 | ID: 13**1*3";
+  return "Mensaje diferente que rompe la prueba";
 }
 
 function getStatus() {
