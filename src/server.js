@@ -1,5 +1,5 @@
 const express = require("express");
-const { getMessage, getStatus, getVersion } = require("./App");
+const { getMessage, getStatus, getVersion } = require("./app");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
